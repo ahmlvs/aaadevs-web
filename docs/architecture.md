@@ -8,6 +8,8 @@ studio building in **crypto & AI**.
 
 Current projects:
 
+- **ailiste** ([ailiste.app](https://ailiste.app)) — a Cyprus property AI data platform: median
+  asking price per m², rent and gross yield per district, computed from public listings.
 - **troniti** ([troniti.com](https://troniti.com)) — a non-custodial TRX-yield management service for
   large TRON holders.
 - **PlainAI** ([plainai.tech](https://plainai.tech)) — an AI tools directory: honest reviews, AI news
@@ -41,7 +43,7 @@ aaadevs_com/
 │   │
 │   ├── components/
 │   │   ├── Hero.astro             # Studio logo, name, tagline
-│   │   ├── Project.astro          # Project cards grid (troniti, plainai) → links out
+│   │   ├── Project.astro          # Project rows (ailiste, troniti, plainai) → links out
 │   │   └── Footer.astro           # Copyright, email
 │   │
 │   └── styles/
@@ -73,6 +75,12 @@ if needed, live on troniti.com).
 ### Screen 2 — Projects (cards grid)
 - A two-column grid (stacked on mobile) of project cards, each with a thin gradient border in the
   project's brand color
+- **ailiste card** (purple border, `#a978d0`), first in the list: the ailiste mark (an area with a
+  part of it measured, inlined from `ailiste-app/src/components/Mark.astro`) + lowercase wordmark
+  **ailiste** + **Live** badge + one line: *"Cyprus property AI data platform"* + CTA
+  **"Visit ailiste.app →"**. The border does **not** use ailiste's own accent `#5f2b91`: that colour
+  is the dark end of its choropleth ramp, picked against a white map, and it is invisible here.
+  `#a978d0` is the middle class of the same ramp — same hue, readable on a dark background.
 - **troniti card** (red border): the troniti brand mark (tilted orbit) + lowercase wordmark
   **troniti** + a green status badge (**Live**) + one line: *"Non-custodial TRON yield management"*
   + CTA **"Visit troniti.com →"**

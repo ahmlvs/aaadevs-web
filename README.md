@@ -7,6 +7,7 @@ project's own brand color. All product detail lives on the projects' own sites.
 
 | project | what | brand on the card |
 |---|---|---|
+| [ailiste.app](https://ailiste.app) | Cyprus property AI data platform — price and yield per district | purple `#a978d0` (the mid class of its own ramp; its accent `#5f2b91` is picked for a white map and dies on this background) |
 | [troniti.com](https://troniti.com) | non-custodial TRON yield management | orange `#f7941d` (see `troniti-web/design/brand.md`) |
 | [plainai.tech](https://plainai.tech) | AI tools directory — honest reviews, news & guides | blue `#93cafa` |
 
