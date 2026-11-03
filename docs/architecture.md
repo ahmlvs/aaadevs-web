@@ -27,7 +27,7 @@ product's own site — we do not duplicate it on the studio site. Here it's just
 |-----------|-----------|
 | SSG | Astro |
 | Styling | Tailwind CSS |
-| Deploy | GitHub Pages (static site) |
+| Deploy | Cloudflare Pages (static site) |
 | Domain | aaadevs.com |
 
 ## Project structure
@@ -54,7 +54,7 @@ aaadevs_com/
 │   │   ├── logo.svg               # AAA Devs studio logo (TRON-red)
 │   │   ├── plainai-logo.svg       # PlainAI wordmark (recolored light for dark bg)
 │   │   └── og-image.png           # Open Graph 1200×630 (generated from logo.svg)
-│   ├── CNAME                      # aaadevs.com
+│   ├── _headers                   # response headers for Cloudflare Pages (HSTS, security)
 │   └── favicon.ico
 │
 ├── astro.config.mjs
@@ -130,11 +130,16 @@ Reference — **tronscan.org** as the de-facto standard of the TRON ecosystem.
 
 ## Deploy
 
-### GitHub Pages (Static Site)
-- Auto-deploy via GitHub Actions: push to `main` → `npm run build` → publish `dist/`
-- Workflow `.github/workflows/deploy.yml` (the official `actions/deploy-pages`)
-- Automatic HTTPS
-- Custom domain aaadevs.com via `public/CNAME` (or the repo's Pages settings)
+### Cloudflare Pages (Static Site)
+- Auto-deploy on push to `main`: the Pages project `aaadevs-web`, connected to the repo, runs
+  `npm run build` and publishes `dist/`; Node from `.nvmrc`
+- Response headers in `public/_headers`: HSTS (six months) and the basic security headers - the
+  reason the site moved off GitHub Pages on 2026-11-03, which could not send them
+- Custom domain aaadevs.com on the Pages project (a proxied CNAME, made by Pages); `www` is a proxied
+  CNAME to the apex, and a Redirect Rule sends it there with 301, path and query string kept
+- The same DNS carries the mail on Zoho - MX, SPF through Zoho's SPF manager, DKIM, and DMARC
+  (`p=none` with reports to Cloudflare since 2026-11-03, to be tightened): leave those records alone
+- The domain stays verified in GitHub's Pages settings, so no other GitHub account can publish on it
 - Set `site: 'https://aaadevs.com'` in `astro.config.mjs` (with a custom domain, no `base` is needed)
 
 ## Scaling (post-MVP)

@@ -17,7 +17,8 @@ Static studio site for **AAA Devs** (aaadevs.com) — a thin "we are a studio, h
 - **Astro 6** (static site generator, zero JS by default)
 - **Tailwind CSS 4** (via `@tailwindcss/vite` plugin)
 - **TypeScript** (strict mode)
-- **Deploy target**: GitHub Pages (static site, via GitHub Actions)
+- **Deploy target**: Cloudflare Pages (static site, project `aaadevs-web`, built on push to `main`;
+  off GitHub Pages since 2026-11-03, which could not send the headers in `public/_headers`)
 
 ## Architecture
 

@@ -38,5 +38,5 @@ npm run preview    # preview build locally
 
 ## Deploy
 
-GitHub Pages via GitHub Actions. Auto-deploy on push to `main`.
-Custom domain `aaadevs.com` via `public/CNAME`.
+Cloudflare Pages (project `aaadevs-web`). Auto-deploy on push to `main`.
+Custom domain `aaadevs.com` on the Pages project; response headers in `public/_headers`.
