@@ -1,0 +1,16 @@
+# Cloudflare Pages response headers.
+#
+# HSTS is here because GitHub Pages could not send it - the reason the site moved to Cloudflare
+# (2026-11-03). Six months, as ailiste.app; no includeSubDomains or preload until every subdomain
+# is known to stay on HTTPS. The `!` line removes the wildcard CORS header Pages adds by itself.
+/*
+  Strict-Transport-Security: max-age=15552000
+  X-Content-Type-Options: nosniff
+  X-Frame-Options: DENY
+  Referrer-Policy: strict-origin-when-cross-origin
+  Permissions-Policy: camera=(), microphone=(), geolocation=(), payment=(), usb=()
+  ! Access-Control-Allow-Origin
+
+# Astro's hashed assets: a changed file is a new URL, so the old one can be kept for a year.
+/_astro/*
+  Cache-Control: public, max-age=31536000, immutable
